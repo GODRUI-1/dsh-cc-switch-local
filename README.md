@@ -1,5 +1,7 @@
 # dsh-cc-switch-local
 
+> GitHub: <https://github.com/GODRUI-1/dsh-cc-switch-local>
+
 把 **cc-switch 的本地路由**、cc-switch 里的供应商、以及**自己声明的供应商**一起接进
 DeepSeek Harness。和 `dsh-cc-switch` 相比，补上的正是最容易卡住的那一块：
 **本地路由（127.0.0.1:15721）没有被当成一条可用路由接进来**。
