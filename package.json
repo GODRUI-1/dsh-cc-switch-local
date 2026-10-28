@@ -1,0 +1,81 @@
+{
+  "name": "dsh-cc-switch-local",
+  "version": "0.2.0",
+  "description": "cc-switch 本地路由 + 自定义供应商：把 cc-switch 的本地路由、直连供应商和自建 OpenAI Chat Completions 供应商一起接进 DeepSeek Harness。",
+  "type": "module",
+  "main": "./dsh/index.js",
+  "exports": {
+    ".": "./dsh/index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dsh",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "CONTRIBUTING.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "cc-switch",
+    "local-proxy",
+    "openai-completions",
+    "model-provider"
+  ],
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    },
+    "catalog": {
+      "category": "model",
+      "summary": {
+        "en": "Bridges the cc-switch local router, direct upstream providers, and your own OpenAI Chat Completions providers into DSH, with a settings panel to switch routes and manage providers.",
+        "zh": "把 cc-switch 的本地路由、直连供应商和自建 OpenAI Chat Completions 供应商接进 DSH，并在设置里切换路由、管理供应商。"
+      },
+      "capabilities": [
+        {
+          "en": "Detects the running cc-switch local router (proxy_config, client configs, port health) and imports it as an anthropic-messages route shared with Claude Code.",
+          "zh": "识别正在运行的 cc-switch 本地路由（proxy_config、客户端配置、端口探活），接成与 Claude Code 共用的一条 anthropic-messages 路由。"
+        },
+        {
+          "en": "Imports cc-switch providers directly, with local-route and direct-upstream modes switchable independently.",
+          "zh": "直连导入 cc-switch 供应商，本地路由与直连上游两种模式可以分别开关、随时切换。"
+        },
+        {
+          "en": "Adds a CC Switch settings page to create, edit, and delete custom providers with openai-completions, openai-responses, or anthropic-messages.",
+          "zh": "在设置里新增 CC Switch 页面，可增删改自定义供应商，API 格式支持 openai-completions / openai-responses / anthropic-messages。"
+        },
+        {
+          "en": "Registers a cc_switch_local tool with status, sync, plan, list, local-probe, and custom-provider actions.",
+          "zh": "注册 cc_switch_local 工具，支持 status / sync / plan / list / local-probe 与自定义供应商增删。"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "test": "node --test test/unit.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.13",
+    "dsh": ">=0.2.0-rc.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

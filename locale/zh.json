@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "CC Switch Local",
+    "description": "把 cc-switch 的本地路由和自定义 OpenAI 兼容供应商接进 DSH，并在设置里切换路由。"
+  }
+}

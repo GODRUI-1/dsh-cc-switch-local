@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "CC Switch Local",
+    "description": "Bridges the cc-switch local router and custom OpenAI-compatible providers into DSH, with a settings panel to switch routes."
+  }
+}

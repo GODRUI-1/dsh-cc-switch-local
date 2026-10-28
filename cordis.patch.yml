@@ -1,0 +1,8 @@
+# dsh-cc-switch-local bundle 层：把宿主插件挂进 profile。
+# 安装后由 DSH 启动时自动加载；Web 面板的 Client 半也由本包提供。
+- insert:
+    - id: cc-switch-local
+      name: 'dsh-cc-switch-local'
+      config:
+        includeLocalRoute: true
+        includeDirectRoutes: true
