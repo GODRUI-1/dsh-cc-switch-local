@@ -208,6 +208,11 @@ cc_switch_local action=reasoning levels="low,high,max"
 - **长会话只回一个 token / `finish=max-tokens`**：模型的 `contextWindow` 太小。
   0.2.0 会按 `[1M]` 推断 1,000,000 上下文，同步后 `local-probe` 会显示
   `上下文 1000000`；旧会话如果已经卡在失败的压缩检查点，开一个新会话最稳。
+- **改名后刷新报 `dsh-cc-switch-pro: loaded without registering`**：旧的
+  `node_modules/dsh-cc-switch-pro` 软链还留在 profile 里，Client 图会加载同一个
+  目录下的 `client.js`，但它现在注册的是 `dsh-cc-switch-local`。删掉旧软链
+  （`rm ~/.dsh/profiles/web/node_modules/dsh-cc-switch-pro`）并重新安装
+  `dsh-cc-switch-local`，然后硬刷新页面。
 - **模型选择器里看不到新路由**：点「立即同步」，再到「设置 → 模型」确认；
   `cc_switch_local action=status` 会显示它管理的路由。
 - **改了插件源码**：`link:` 安装是即时链接，但宿主模块需要重新加载；在
